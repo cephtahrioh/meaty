@@ -13,9 +13,9 @@ export default {
     
     console.log(req.body);
     
-    db.one("INSERT INTO items(text, complete) values($1, $2) returning id", [data.text, data.complete])
+    db.one("INSERT INTO items(text, complete) values(${text}, ${complete}) returning id", data)
       .then(function(data) {
-        console.log("inserted " + data.id);
+        console.log("inserted:", data.id);
         res.status(200).send({ack: "Todos created"});
       })
       .catch(function (error) {
@@ -26,7 +26,7 @@ export default {
   
   read(req, res) {
     var results = [];
-    db.manyOrNone("select * from items")
+    db.any("select * from items")
       .then(data => {
         res.json(data);
       })
@@ -41,7 +41,7 @@ export default {
       text: req.body.text
     };
     
-    db.none("update items set text=$1, complete=$2 where id=$3", [data.text, data.complete, req.params.id])
+    db.none("update items set text=$1, complete=$2 where id=$3", [data.text, data.complete, parseInt(req.params.id)])
       .then(() => res.status(200).send({ack: "Todos updated"}))
       .catch(error => {
         res.status(500).send({error: 'Something failed!'});
