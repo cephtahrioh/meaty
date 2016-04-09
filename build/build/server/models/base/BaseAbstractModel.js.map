@@ -1,0 +1,1 @@
+{"version":3,"file":"BaseAbstractModel.js","sourceRoot":"","sources":["../../../../server/models/base/BaseAbstractModel.ts"],"names":[],"mappings":";AACA,4BAAkB,oCAAoC,CAAC,CAAA;AAEvD;IAAA;QAEU,YAAO,GAAgB,IAAI,iBAAG,CAAS,CAAC,MAAM,EAAC,aAAa,EAAC,OAAO,CAAC,CAAC,CAAC;IAMjF,CAAC;IAJC,8BAAU,GAAV;QACE,MAAM,CAAC,OAAO,CAAC;IACjB,CAAC;IAEH,gBAAC;AAAD,CAAC,AARD,IAQC;AARD;2BAQC,CAAA"}
